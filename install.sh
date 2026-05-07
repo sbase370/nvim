@@ -71,7 +71,7 @@ install_packages_arch() {
 clone_config() {
     info "Cloning configuration..."
 
-    rm -rf "$TMP_DIR"
+    # rm -rf "$TMP_DIR"
     git clone "$REPO_URL" "$TMP_DIR"
 
     mkdir -p "$HOME/.config"
