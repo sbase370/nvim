@@ -48,25 +48,35 @@ install_packages_debian() {
         golang
 }
 
+install_if_missing_arch() {
+    local package="$1"
+    local command="$2"
+
+    if ! command -v "$command" >/dev/null 2>&1; then
+        info "Installing $package..."
+        sudo pacman -Sy --noconfirm "$package"
+    else
+        info "$package already installed"
+    fi
+}
+
 install_packages_arch() {
     info "Installing packages for Arch Linux..."
 
-    sudo pacman -Sy --noconfirm \
-        neovim \
-        git \
-        curl \
-        wget \
-        unzip \
-        gcc \
-        make \
-        ripgrep \
-        fd \
-        python \
-        python-pip \
-        nodejs \
-        npm \
-        go
-}
+    install_if_missing_arch neovim nvim
+    install_if_missing_arch git git
+    install_if_missing_arch curl curl
+    install_if_missing_arch wget wget
+    install_if_missing_arch unzip unzip
+    install_if_missing_arch gcc gcc
+    install_if_missing_arch make make
+    install_if_missing_arch ripgrep rg
+    install_if_missing_arch fd fd
+    install_if_missing_arch python python
+    install_if_missing_arch pip pip
+    install_if_missing_arch npm npm
+    install_if_missing_arch go go
+}      
 
 clone_config() {
     info "Cloning configuration..."
