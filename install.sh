@@ -4,7 +4,7 @@ set -e
 
 REPO_URL="https://github.com/sbase370/nvim.git"
 CONFIG_DIR="$HOME/.config/nvim"
-TMP_DIR="/tmp/nvim-config-install"
+TMP_DIR="$HOME/nvim-config-install"
 
 info() {
     echo "[INFO] $1"
