@@ -73,7 +73,6 @@ install_packages_arch() {
     install_if_missing_arch ripgrep rg
     install_if_missing_arch fd fd
     install_if_missing_arch python python
-    install_if_missing_arch pip pip
     install_if_missing_arch npm npm
     install_if_missing_arch go go
 }      
